@@ -1,7 +1,8 @@
 package com.meetfp
 
 /**
- * Created by dengchunni on 14-6-4.
+ * Examples of scala tutorials on http://meetfp.com/
+ * Created by dengchunni
  */
 object AppWithMain extends App {
   //Fields will not be initiated before the main method
