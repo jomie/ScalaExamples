@@ -27,7 +27,7 @@ object Immutable extends App {
   println(another.getClass.getName) //scala.collection.immutable.Set
 }
 
-object Sorted extends App {
+object Sort extends App {
   import scala.collection.immutable.SortedSet
 
   val set = SortedSet(2, 6, 7, 3, 5, 4, 1, 8)

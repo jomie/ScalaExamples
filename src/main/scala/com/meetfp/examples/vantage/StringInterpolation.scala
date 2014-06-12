@@ -10,15 +10,15 @@ object SInterpolator extends App {
   val age = 32
   val sayHi = s"Hi, my name is $name, and I am $age years old"
   val sayHiFormat = "Hi, my name is %s, and I am %d years old".format(name, age)
-  println(sayHi)  //Hi, my name is Tony, and I am 32 years old
-  println(sayHiFormat)  //Hi, my name is Tony, and I am 32 years old
+  println(sayHi) //Hi, my name is Tony, and I am 32 years old
+  println(sayHiFormat) //Hi, my name is Tony, and I am 32 years old
 }
 
 object FInterpolator extends App {
   val count = 6
   val price = 4.25
   val totalStr = f" Unit Price: $price%5.2f\n      Count: $count%5d\nTotal Price: ${price * count}%5.2f"
-  val totalFormat =  " Unit Price: %5.2fd\n      Count: %5d\nTotal Price: %5.2f".format(price,count,price * count)
+  val totalFormat = " Unit Price: %5.2fd\n      Count: %5d\nTotal Price: %5.2f".format(price, count, price * count)
   println(totalStr)
   println(totalFormat)
 }

@@ -5,22 +5,23 @@ package com.meetfp.examples.vantage
  * Created by dengchunni
  */
 object Extractor extends App {
+
   object UrlParas {
     def apply(map: Map[String, String]) = new Paras(map)
 
     def unapply(s: String): Option[Map[String, String]] = {
       val idx = s.indexOf("?")
-      if(idx == -1 ) {
+      if (idx == -1) {
         None
       }
       else {
         val m = collection.mutable.Map[String, String]()
-        s.substring(idx+1).split('&')
+        s.substring(idx + 1).split('&')
           .foreach(a => {
           val pair = a.split('=')
-          if(pair.length == 2) m += ((pair(0), pair(1)))
+          if (pair.length == 2) m += ((pair(0), pair(1)))
         })
-        if(m.isEmpty) None
+        if (m.isEmpty) None
         else Some(m.toMap)
       }
     }

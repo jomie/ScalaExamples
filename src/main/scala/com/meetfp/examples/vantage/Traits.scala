@@ -5,8 +5,10 @@ package com.meetfp.examples.vantage
  * Created by dengchunni
  */
 object Traits extends App {
+
   trait Flyable {
     val height: Int
+
     def fly = {
       println(s"I can fly at the height of $height feet.")
     }
@@ -25,6 +27,7 @@ object Traits extends App {
   class Pigeon extends Bird with Flyable {
     //inherit properties and methods from Bird
     val height = 300
+
     override def toString = "Pigeon: "
   }
 
@@ -35,6 +38,7 @@ object Traits extends App {
   class Boeing777 extends AirCraft with Flyable {
     //inherit properties and methods from AirCraft
     val height = 30000
+
     override def fly = {
       super.fly
       println("I can fly even higher!")
