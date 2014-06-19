@@ -24,5 +24,4 @@ object Reducing extends App {
 
   val res = nums.fold("")(_ + _.toString + ",")
   println(res)
-
 }

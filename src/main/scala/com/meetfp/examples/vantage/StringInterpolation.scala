@@ -18,7 +18,8 @@ object FInterpolator extends App {
   val count = 6
   val price = 4.25
   val totalStr = f" Unit Price: $price%5.2f\n      Count: $count%5d\nTotal Price: ${price * count}%5.2f"
-  val totalFormat = " Unit Price: %5.2fd\n      Count: %5d\nTotal Price: %5.2f".format(price, count, price * count)
+  val totalFormat = " Unit Price: %5.2f\n      Count: %5d\nTotal Price: %5.2f"
+     .format(price, count, price * count)
   println(totalStr)
   println(totalFormat)
 }
