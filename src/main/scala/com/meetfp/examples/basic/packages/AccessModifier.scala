@@ -6,45 +6,51 @@
 package outer {
 
 class Outer {
-  private val privOuterStr = "I'm a private string in Outer"
-  class Nested {
-    private val privNestedStr = "I'm a private string in Nested"
+    private val privOuterStr = "I'm a private string in Outer"
 
-    println(privOuterStr) //can access privNestedStr
+    class Nested {
+      private val privNestedStr = "I'm a private string in Nested"
+
+      println(privOuterStr) //can access privNestedStr
+    }
+
+    //println(privNestedStr) //cannot access privNestedStr
   }
 
-  //println(privNestedStr) //cannot resolve symbol privNestedStr
-}
+  package inner {
 
-package inner {
+    class Inner {
+      private val privateVal = "private can be accessed within the class"
+      private[this] val privateThis = "private[this], can only access from same object"
+      private[inner] val privateInner = "private inner, can access from the inner package"
+      private[outer] val privateOuter = "private outer, can access from the outer package"
+      protected[outer] val protectedOuter = "protected outer, can be accessed from the outer package, as well as its sub classes."
 
-class InInner {
-  val sInner = "I'm InInner, and I am in the inner package"
-}
+      def test() {
+        val another = new Inner
+        another.privateVal //OK
+        //another.privateThis //Inaccessible
+      }
+    }
 
-object TestInInner {
-  //Directly access from the outer package
-  def test() {
-    println("I'm in the inner package, but I can access InOuter class directly")
-    val out = new InOuter
-    println(out.sOut)
+    object InInnerPackage {
+      def test() {
+        val inner1 = new Inner
+        inner1.privateInner //OK
+        //inner1.privateThis //Inaccessible
+      }
+    }
+
   }
-}
 
-}
-
-object TestInOuter {
-  //Cannot access the class from the nested package directly
-  //but can access just by inner.InInner is OK, no need to say outer.inner.InInner
-  def test() {
-    println("I'm in the outer package, and I CANNOT access InInner class directly")
-    val in = new inner.InInner
-    println(in.sInner)
+  object InOuterPackage {
+    def test() {
+      val inner2 = new inner.Inner
+      inner2.privateOuter     //OK
+      inner2.protectedOuter   //OK
+      //inner1.privateInner   //Inaccessible
+      //inner1.privateThis    //Inaccessible
+    }
   }
-}
 
-object Test extends App {
-  TestInOuter.test()
-  inner.TestInInner.test()
-}
 }
