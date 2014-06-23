@@ -8,5 +8,5 @@ Currently, there are two tutorials available.
 * [Scala Vantage](http://meetfp.com/en/scala-vantage)
 
 中文版：
-* [Scala初级教程](http://meetfp.com/zh/scala-basic)   
+* [Scala初级教程](http://meetfp.com/zh/scala-basic)
 * [Scala中级教程](http://meetfp.com/zh/scala-vantage)
